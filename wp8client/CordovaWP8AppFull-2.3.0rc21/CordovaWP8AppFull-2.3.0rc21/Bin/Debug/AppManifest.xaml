@@ -1,0 +1,7 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="CordovaWP8AppFull-2.3.0rc21" EntryPointType="CordovaWP8AppFull_2._3._0rc21.App" RuntimeVersion="4.7.50308.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="CordovaWP8AppFull-2.3.0rc21" Source="CordovaWP8AppFull-2.3.0rc21.dll" />
+    <AssemblyPart x:Name="WPCordovaClassLib" Source="WPCordovaClassLib.dll" />
+    <AssemblyPart Source="en-US/CordovaWP8AppFull-2.3.0rc21.resources.dll" />
+  </Deployment.Parts>
+</Deployment>
