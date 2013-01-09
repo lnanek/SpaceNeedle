@@ -28,7 +28,13 @@ function viewSource() {
 <hr>
 
 <h2>Test an unauthenticated call to search for a venue</h2>
-<?php $venue = $fsObjUnAuth->get('/venues/search', array('ll' => '40.7,-74')); ?>
+<?php 
+
+	$venue = $fsObjUnAuth->get('/venues/explore', array('ll' => '40.7,-74', 'venuePhotos' => "1")); 
+	
+	
+	
+?>
 <pre><?php var_dump($venue->response->groups[0]->items[0]); ?></pre>
 
 <hr>
@@ -39,6 +45,10 @@ function viewSource() {
 <a href="<?php echo $authorizeUrl; ?>"><?php echo $authorizeUrl; ?></a>
 
 <?php } else { ?>
+
+
+
+
 	<h2>Display your own badges</h2>
 	<?php
 	if(!isset($_COOKIE['access_token'])) {
@@ -47,6 +57,18 @@ function viewSource() {
 		$_COOKIE['access_token'] = $token->access_token;
 	}
 	$fsObjUnAuth->setAccessToken($_COOKIE['access_token']);
+	
+
+	$venue = $fsObjUnAuth->get('/venues/explore', array('ll' => '40.7,-74', 'venuePhotos' => "1")); 
+	
+	
+	
+?>
+<pre><?php var_dump($venue->response->groups[0]->items[0]); ?></pre>
+<?php
+	
+	
+	
 	$badges = $fsObjUnAuth->get('/users/self/badges');
 
 	// Process the returned object and display the badge images					

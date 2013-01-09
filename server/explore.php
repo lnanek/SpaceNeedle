@@ -19,22 +19,49 @@
 		'http://server.neatocode.com/spaceneedle/example_food.png'
 	);
 		
-	$ll = htmlspecialchars($_GET["ll"]);
-	$item = 0;
+	$ll = "36.060944,-115.133735"; // Default to the Venetian.
+	if ( htmlspecialchars($_GET["ll"]) ) {
+		$ll = htmlspecialchars($_GET["ll"]);
+	}
+	
+	$item = 0; // Default to item 0.
 	if ( htmlspecialchars($_GET["item"]) ) {
 		$item = htmlspecialchars($_GET["item"]);
 	}
-	$venue = $fsObjUnAuth->get('/venues/search',array('ll' => $ll, 'venuePhotos' => 1));
-	if ( $venue->response->groups[0]->items[$item]->name ) {
-		$name = $venue->response->groups[0]->items[$item]->name;
-		$lat = $venue->response->groups[0]->items[$item]->location->lat;
-		$lon = $venue->response->groups[0]->items[$item]->location->lng;
-		$distance = $venue->response->groups[0]->items[$item]->location->distance;
-		$image = $example_images[$item % 3];
-		if ( $venue->response->groups[0]->items[$item]->photos->groups[0]->items[0] ) {
-			$image = $venue->response->groups[0]->items[$item]->photos->groups[0]->items[0]->prefix
-				. 'original'
-				. $venue->response->groups[0]->items[$item]->photos->groups[0]->items[0]->suffix;	
+	
+	$venue = $fsObjUnAuth->get('/venues/explore',array('ll' => $ll, 'venuePhotos' => 1));
+	
+	$items = $venue->response->groups[0]->items;
+
+	$first_item = true;
+
+	$count = 0;
+
+	$item = $items[$item];
+	//foreach ($items as &$item) {	
+	
+		if (!$item) {
+?>
+			{
+				"name" : "Nothing now. Keep looking!",
+				"lat" : null,
+				"lon" : null,
+				"distance" : 0,
+				"image" : "https://www.google.com/images/srpr/logo3w.png"
+			}		
+<?php
+		} else { 
+	
+		$name = $item->venue->name;
+		$lat = $item->venue->location->lat;
+		$lon = $item->venue->location->lng;
+		$distance = $item->venue->location->distance;
+		$image = $example_images[$count % 3];
+		if ( $item->venue->photos->groups[0]->items[0]->url ) {
+			$image = $item->venue->photos->groups[0]->items[0]->url;	
+		}
+		if (!$first_item) {
+			?>,<?php
 		}
 ?>	
 			{
@@ -43,15 +70,13 @@
 				"lon" : <?= $lon ?>,
 				"distance" : <?= $distance ?>,
 				"image" : "<?= $image ?>"
+			}	
+<?php		
+			$first_item = false;
+			$count++;
 			}
-<?php } else { ?>
-			{
-				"name" : "Nothing now. Keep looking!",
-				"lat" : null,
-				"lon" : null,
-				"distance" : 0,
-				"image" : "https://www.google.com/images/srpr/logo3w.png"
-			}
-<?php } ?>
-	}
+	//}
+?>	
+
+
 

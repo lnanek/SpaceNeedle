@@ -12,31 +12,39 @@
 	$fsObjUnAuth = new EpiFoursquare($clientId, $clientSecret);
 ?>
 <?php
-	$ll = htmlspecialchars($_GET["ll"]);
-	$item = 0;
-	if ( htmlspecialchars($_GET["item"]) ) {
-		$item = htmlspecialchars($_GET["item"]);
-	}
-	
+
 	$example_images = array(
 		'http://server.neatocode.com/spaceneedle/example_desert.png',
 		'http://server.neatocode.com/spaceneedle/example_drinks.png',
 		'http://server.neatocode.com/spaceneedle/example_food.png'
 	);
+		
+	$ll = "36.060944,-115.133735"; // Default to the Venetian.
+	if ( htmlspecialchars($_GET["ll"]) ) {
+		$ll = htmlspecialchars($_GET["ll"]);
+	}
 	
-	$venue = $fsObjUnAuth->get('/venues/search',array('ll' => $ll, 'venuePhotos' => 1));
+	//$item = 0; // Default to item 0.
+	//if ( htmlspecialchars($_GET["item"]) ) {
+	//	$item = htmlspecialchars($_GET["item"]);
+	//}
+	
+	$venue = $fsObjUnAuth->get('/venues/explore',array('ll' => $ll, 'venuePhotos' => 1));
+	
+	$items = $venue->response->groups[0]->items;
+
 	$first_item = true;
+
 	$count = 0;
-	foreach ($venue->response->groups[0]->items as &$item) {
-		$name = $item->name;
-		$lat = $item->location->lat;
-		$lon = $item->location->lng;
-		$distance = $item->location->distance;
+
+	foreach ($items as &$item) {	
+		$name = $item->venue->name;
+		$lat = $item->venue->location->lat;
+		$lon = $item->venue->location->lng;
+		$distance = $item->venue->location->distance;
 		$image = $example_images[$count % 3];
-		if ( $item->photos->groups[0]->items[0] ) {
-			$image = $item->photos->groups[0]->items[0]->prefix
-				. 'original'
-				. $item->photos->groups[0]->items[0]->suffix;	
+		if ( $item->venue->photos->groups[0]->items[0]->url ) {
+			$image = $item->venue->photos->groups[0]->items[0]->url;	
 		}
 		if (!$first_item) {
 			?>,<?php
