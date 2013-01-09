@@ -32,6 +32,8 @@
 	$venue = $fsObjUnAuth->get('/venues/explore',array('ll' => $ll, 'venuePhotos' => 1));
 	
 	$items = $venue->response->groups[0]->items;
+	
+	$default_reason = $venue->response->groups[0]->items[0]->reasons->items[0]->message;
 
 	$first_item = true;
 
@@ -47,11 +49,12 @@
 				"lat" : null,
 				"lon" : null,
 				"distance" : 0,
-				"image" : "https://www.google.com/images/srpr/logo3w.png"
+				"image" : null,
 			}		
 <?php
 		} else { 
 	
+		$user_photo = $item->venue->likes->groups[0]->items[0]->photo;
 		$name = $item->venue->name;
 		$lat = $item->venue->location->lat;
 		$lon = $item->venue->location->lng;
@@ -70,6 +73,8 @@
 				"lon" : <?= $lon ?>,
 				"distance" : <?= $distance ?>,
 				"image" : "<?= $image ?>"
+				"reason" : "<?= $default_reason ?>",
+				"user_photo" : "<?= $user_photo ?>"
 			}	
 <?php		
 			$first_item = false;
