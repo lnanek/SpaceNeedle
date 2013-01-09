@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.htc.sample.newsroom"
+        versionCode="4" 
+        version   = "3.1.0">
+
+    <name>Flip Guide Me</name>
+
+    <description>
+        See awesome sights near you! Flip through and it learns your tastes!
+    </description>
+
+    <author href="https://flipguide.me/" email="lance_nanek@htc.com">
+        Space Needle Team 
+    </author>
+    
+    <preference name="stay-in-webview" value="false" />
+
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/notification"/>
+
+	<access origin="*" browserOnly="false" />
+
+</widget>

@@ -2,12 +2,12 @@
 ob_start();
 require_once 'EpiCurl.php';
 require_once 'EpiFoursquare.php';
-$clientId = 'a40b1aece83e8d94a08fff1e94f87c2f04af2881a';
-$clientSecret = 'e83c621567e6c430848db6dc5dde94b9';
-$code = 'BFVH1JK5404ZUCI4GUTHGPWO3BUIUTEG3V3TKQ0IHVRVGVHS';
-$accessToken = 'DT32251AY1ED34V5ADCTNURTGSNHWXCNTOMTQM5ANJLBLO2O';
-$redirectUri = 'http://www.jaisenmathai.com/foursquare-async/simpleTest.php';
-$userId = '5763863';
+$clientId = 'USAVZNQTYR1CKIJDJXM0BFYV3EYOC5GMECOOAPWSSWG3BOHS';
+$clientSecret = 'RKSAEP0QMFMBO4XSXFWIJECDCWY3VGY4K54KIP2L21UP5WW2';
+//$code = 'BFVH1JK5404ZUCI4GUTHGPWO3BUIUTEG3V3TKQ0IHVRVGVHS';
+//$accessToken = 'DT32251AY1ED34V5ADCTNURTGSNHWXCNTOMTQM5ANJLBLO2O';
+$redirectUri = 'http://server.neatocode.com/spaceneedle/simpleTest.php';
+//$userId = '5763863';
 $fsObj = new EpiFoursquare($clientId, $clientSecret, $accessToken);
 $fsObjUnAuth = new EpiFoursquare($clientId, $clientSecret);
 ?>
