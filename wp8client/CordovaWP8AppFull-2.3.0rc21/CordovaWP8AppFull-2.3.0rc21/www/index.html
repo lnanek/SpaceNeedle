@@ -22,27 +22,55 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+<!--
+      <link rel="stylesheet" type="text/css" href="css/index.css" />
+-->
         <title>Hello World</title>
+        <style type="text/css">
+          html, body {
+            width: 100%;
+            background-color: black;
+          }
+          * {
+          margin: 0 !important;
+          padding: 0 !important;
+          border: 0 !important;
+          }
+          .fullWidth {
+          width: 100%;
+          }
+          .halfWidth {
+          width: 50%;
+          }
+          .quarterWidth {
+          width: 25%;
+          }
+
+        </style>
     </head>
     <body>
-        <div>
-            <img src="/Images/tod1.png"/>
+        <div class="fullWidth">
+            <img src="img/tod1.png" class="fullWidth"/>
         </div>
-        <div>
-            <img src="/Images/SmallHost1.jpg"/>
-            <img src="/Images/SmallHost2.jpg"/>
-            <img src="/Images/SmallHost3.jpg"/>
-            <img src="/Images/SmallHost4.jpg"/>
+      
+        <div class="fullWidth"
+             ><img src="img/SmallHost1.jpg" class="quarterWidth" 
+             /><img src="img/SmallHost2.jpg" class="quarterWidth" 
+             /><img src="img/SmallHost3.jpg" class="quarterWidth" 
+             /><img src="img/SmallHost4.jpg" class="quarterWidth" 
+        /></div>
+
+        <div class="fullWidth"
+             ><img src="img/anthony1.png" class="halfWidth" 
+             /><img src="img/andrew1.png" class="halfWidth" 
+        /></div>
+      
+        <div class="fullWidth">
+            <img src="img/samanthawide.png" class="fullWidth"/>
         </div>
-        <div>
-            <img src="/Images/anthony1.png"/>
-            <img src="/Images/andrew1.png"/>
-        </div>
-        <div>
-            <img src="/Images/samanthawide.png"/>
-        </div>
-        <script type="text/javascript" src="cordova-2.3.0.js"></script>
+
+      
+      <script type="text/javascript" src="cordova-2.3.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
@@ -51,7 +79,7 @@
       <script>
 
         $.get('http://server.neatocode.com/spaceneedle/explore.php',function(data,status) {
-        document.write(data);
+        alert(data);
         },'html');
       </script>
       
