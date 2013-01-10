@@ -72,7 +72,7 @@
 				"lat" : <?= $lat ?>,
 				"lon" : <?= $lon ?>,
 				"distance" : <?= $distance ?>,
-				"image" : "<?= $image ?>"
+				"image" : "<?= $image ?>", 
 				"reason" : "<?= $default_reason ?>",
 				"user_photo" : "<?= $user_photo ?>"
 			}	
