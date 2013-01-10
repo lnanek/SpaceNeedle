@@ -4,9 +4,9 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta name="format-detection" content="telephone=no" />
             <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-
+    <!--
           <link rel="stylesheet" type="text/css" href="css/index.css" />
-
+    -->
             <title>Hello World</title>
             <style type="text/css">
               html, body {
@@ -30,7 +30,7 @@
               .quarterWidth {
               width: 25%;
               }
-              .flaotLeft { float: left;}
+              .floatLeft { float: left;}
               .floatRight { float: right;}
               .clearBoth { clear: both;}
 
@@ -45,6 +45,23 @@
             <div>
                 <div class="fullWidth" style="border:solid 1px red;">
                     <div class="box">
+                        <h1 id="Place"></h1>
+
+                        <div class="fullWidth">
+                            <img id="MapUrl"/>
+                        </div>
+
+                        <div>
+                            <div class="floatLeft oneFifth">
+                                <img id="Person" />
+                            </div>
+                            <div class="floatRight fourFifth">
+                                <p id="Detail"></p>
+
+                            </div>
+                            <div class="clearBoth"></div>
+                        </div>
+
                         <img id="GoodPhoto" class="halfWidth"/>
                         <div class="by">
                             <div class="floatLeft oneFifth">
@@ -82,6 +99,10 @@
                         $("#GoodPhoto").show();
                     }
 
+                    $("#Person").innerText = data.name;
+                    //$("#MapUrl").attr("src", "http://maps.google.com/https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=12.123123,+-123.123&aq=&sll=37.6,-95.665&sspn=49.958574,93.076172&vpsrc=0&t=h&ie=UTF8&z=17")
+                    $("#Person").attr("src", data.user_photo);
+                    $("#Detail").innerText = data.reason;
 
                 }, 'html');
 
