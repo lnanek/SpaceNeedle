@@ -113,3 +113,11 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+
+.box {
+
+    border: 1px solid #999;
+    border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
+}
