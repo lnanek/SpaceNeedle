@@ -78,6 +78,24 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
         navigator.geolocation.getCurrentPosition(onSuccess, onError, 
         { timeout: 5000, enableHighAccuracy: false });
         
+  
+    
+       $.getJSON('http://server.neatocode.com/spaceneedle/explore.php',function(data,status) {
+        
+        	alert(data);
+        
+        	if ( data.image ) {
+        		$('#topImage').attr("src", data.image);
+        	
+        		//document.write('<img src="' + data.image + '" />');
+        	} else {
+        		document.write(data.name);
+        	}
+        
+        },'html');    
+    
+    
+    
         
         
     }
