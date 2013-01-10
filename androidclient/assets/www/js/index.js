@@ -49,53 +49,39 @@ var app = {
 
         console.log('Received Event: ' + id);
         
+		var onSuccess = function(position) {
         
-        
-// onSuccess Callback
-//   This method accepts a `Position` object, which contains
-//   the current GPS coordinates
-//
-var onSuccess = function(position) {
-    alert('Latitude: '          + position.coords.latitude          + '\n' +
-          'Longitude: '         + position.coords.longitude         + '\n' +
-          'Altitude: '          + position.coords.altitude          + '\n' +
-          'Accuracy: '          + position.coords.accuracy          + '\n' +
-          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-          'Heading: '           + position.coords.heading           + '\n' +
-          'Speed: '             + position.coords.speed             + '\n' +
-          'Timestamp: '         + new Date(position.timestamp)      + '\n');
-};
+			var lon = position.coords.latitude;
+			var lat = position.coords.longitude;
+			var ll = lat + "," + lon;
+			
+        	console.log('Received coordinates: ' + ll);
+		
+		       $.getJSON('http://server.neatocode.com/spaceneedle/explore.php',function(data,status) {
+        			console.log('Received data: ' + data.image);
+		        
+		        	//alert(data);
+		        
+		        	if ( data.image ) {
+		        		$('#topImage').attr("src", data.image);
+		        	
+		        		//document.write('<img src="' + data.image + '" />');
+		        	} else {
+		        		document.write(data.name);
+		        	}
+		        
+		        },'html'); 
+		
+		};
 
-// onError Callback receives a PositionError object
-//
-function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
+		function onError(error) {
+		    alert("Couldn't get location.\n");
+		}
 
-navigator.geolocation.getCurrentPosition(onSuccess, onError);        
+		//navigator.geolocation.getCurrentPosition(onSuccess, onError);        
         
         navigator.geolocation.getCurrentPosition(onSuccess, onError, 
         { timeout: 5000, enableHighAccuracy: false });
-        
-  
-    
-       $.getJSON('http://server.neatocode.com/spaceneedle/explore.php',function(data,status) {
-        
-        	alert(data);
-        
-        	if ( data.image ) {
-        		$('#topImage').attr("src", data.image);
-        	
-        		//document.write('<img src="' + data.image + '" />');
-        	} else {
-        		document.write(data.name);
-        	}
-        
-        },'html');    
-    
-    
-    
         
         
     }
