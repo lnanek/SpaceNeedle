@@ -44,12 +44,10 @@
             
             <div>
                 <div class="fullWidth">
+                    <div id="messageBox"></div>
+
                     <div class="box">
                         <h1 id="Place"></h1>
-
-                        <div class="fullWidth">
-                            <img id="MapUrl"/>
-                        </div>
 
                         <div>
                             <div class="floatLeft oneFifth">
@@ -62,15 +60,14 @@
                             <div class="clearBoth"></div>
                         </div>
 
-                        <img id="GoodPhoto" class="halfWidth"/>
+                        <img id="topImage" class="halfWidth"/>
+                        
                         <div class="by">
                             <div class="floatLeft oneFifth">
-                                X
+                                
                             </div>
                             <div class="floatRight fourFifth">
-                                
-                                asdf afasdfklj asdlkf alks df
-                                adsf  adf  dddf
+
 
                             </div>
                             <div class="clearBoth"></div>
@@ -83,20 +80,21 @@
 
       
             <script type="text/javascript" src="cordova-2.3.0.js"></script>
+            <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
             <script type="text/javascript" src="js/index.js"></script>
             <script type="text/javascript">
                 app.initialize();
             </script>
-            <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-            <script>
+
+<!--            <script>
 
                 
 
                 $.getJSON('http://server.neatocode.com/spaceneedle/explore.php', function (data, status) {
 
                     if (data.image) {
-                        $("#GoodPhoto").attr("src", data.image);
-                        $("#GoodPhoto").show();
+                        $("#topImage").attr("src", data.image);
+                        $("#topImage").show();
                     }
 
                     $("#Person").innerText = data.name;
@@ -107,7 +105,7 @@
                 }, 'html');
 
 
-            </script>
+            </script>-->
       
       
         </body>
