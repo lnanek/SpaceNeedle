@@ -36,13 +36,15 @@
 
               .half { width: 50%;}
 
+              .fullPixels { width: 768px;}
+
             </style>
         </head>
         <body>
             
             <div>
                 <div class="fullWidth">
-                    <img id="GoodPhoto"/>
+                    <img id="GoodPhoto" class="fullPixles"/>
                 </div>
             </div>
 
@@ -58,7 +60,7 @@
                 $.getJSON('http://server.neatocode.com/spaceneedle/explore.php', function (data, status) {
 
                     if (data.image)
-                        $("GoodPhoto").attr("src", data.image);
+                        $("#GoodPhoto").attr("src", data.image);
 
                 }, 'html');
 
