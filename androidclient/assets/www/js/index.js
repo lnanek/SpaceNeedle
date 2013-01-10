@@ -3,7 +3,9 @@ var cachedData;
 var currentItem = 0;
 
 function onShake() {
-	alert("shaken");
+
+	$('#messageBox').html("Shaken! Next!");
+	nextButtonPressed();
 }
 
 var shake = (function () {
@@ -151,9 +153,11 @@ var app = {
 function nextButtonPressed() {
 	$('#messageBox').html("Loading next...");
 	
+	if (!cachedData) return;
+	
 	currentItem++;
 	
-	if ( cachedData && cachedData[currentItem].image ) {
+	if ( cachedData && cachedData[currentItem] && cachedData[currentItem].image ) {
 		$('#topImage').attr("src", cachedData[currentItem].image);
 	} else {
 		$('#messageBox').html("No more. Keep going!");
