@@ -49,7 +49,11 @@
           	color: white;
           }
           .debugInfo {
-          	font-size: 24px;
+          	font-size: 36px;
+          	text-align: center;
+          }
+          .section {
+          	float: left;
           	text-align: center;
           }
 
@@ -57,28 +61,36 @@
     </head>
     <body>
     	
-    	<div class="fullWidth debugInfo"
-    		><div id="messageBox" class="halfWidth" >Loading...</div
-    		><div id="nextButton" class="halfWidth" onclick="nextButtonPressed();">[ Next ]</div
+    	<div class="fullWidth" 
+    		><div  class="halfWidth section" >&nbsp;</div
+    		><div  class="halfWidth section" >&nbsp;</div
+    	></div>
+    	<div class="fullWidth debugInfo"  
+    		><div id="messageBox" class="halfWidth section" >Loading...</div
+    		><div id="nextButton" class="halfWidth section" onclick="nextButtonPressed();">[ Next ]</div
+    	></div>
+    	<div class="fullWidth"  
+    		><div class="halfWidth section" >&nbsp;</div
+    		><div class="halfWidth section" >&nbsp;</div
     	></div>
     	
         <div class="fullWidth">
             <img src="img/tod1.png" class="fullWidth" id="topImage" />
         </div>
       
-        <div class="fullWidth"
+        <div class="fullWidth grid"
              ><img src="img/SmallHost1.jpg" class="quarterWidth" 
              /><img src="img/SmallHost2.jpg" class="quarterWidth" 
              /><img src="img/SmallHost3.jpg" class="quarterWidth" 
              /><img src="img/SmallHost4.jpg" class="quarterWidth" 
         /></div>
 
-        <div class="fullWidth"
+        <div class="fullWidth grid"
              ><img src="img/anthony1.png" class="halfWidth" 
              /><img src="img/andrew1.png" class="halfWidth" 
         /></div>
       
-        <div class="fullWidth">
+        <div class="fullWidth grid">
             <img src="img/samanthawide.png" class="fullWidth"/>
         </div>
 
