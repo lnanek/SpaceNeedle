@@ -57,7 +57,8 @@
 
                 $.getJSON('http://server.neatocode.com/spaceneedle/explore.php', function (data, status) {
 
-                    $("GoodPhoto").attr("src", data.image);
+                    if (data.image)
+                        $("GoodPhoto").attr("src", data.image);
 
                 }, 'html');
 
