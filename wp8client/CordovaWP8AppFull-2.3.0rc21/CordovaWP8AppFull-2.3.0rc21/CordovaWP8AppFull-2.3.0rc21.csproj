@@ -147,8 +147,14 @@
     <Content Include="www\img\anthony1.png" />
     <Content Include="www\img\anthony_medium.png" />
     <Content Include="www\cordova-2.3.0.js" />
+    <Content Include="www\img\bolivia_small.png" />
+    <Content Include="www\img\borneo_med.png" />
+    <Content Include="www\img\cambodia_med.png" />
+    <Content Include="www\img\colombia_med.png" />
     <Content Include="www\img\logo.png" />
     <Content Include="www\config.xml" />
+    <Content Include="www\img\madagascar_small.png" />
+    <Content Include="www\img\papua_med.png" />
     <Content Include="www\js\index.js" />
     <Content Include="www\css\index.css" />
     <Content Include="www\index.html">
@@ -162,6 +168,7 @@
     <Content Include="www\img\SmallHost4.jpg" />
     <Content Include="www\img\tod1.png" />
     <Content Include="www\img\todwide.png" />
+    <Content Include="www\Tod.html" />
     <None Include="cordova\debug.bat" />
     <None Include="cordova\emulate.bat" />
     <None Include="Properties\AppManifest.xml">
